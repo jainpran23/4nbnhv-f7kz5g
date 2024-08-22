@@ -1,5 +1,14 @@
 <h2>books works!</h2>
-<ul>
-  <img src="https://m.media-amazon.com/images/I/71U6ZbG2TEL._SL1000_.jpg" alt="{{ name }}" width="30%"/>
-  <li>{{ name }} by {{ author }}</li>
+<button (click)="isShowing =!isShowing">
+  <ng-container *ngIf="!isShowing">Show Books</ng-container>
+  <ng-container  *ngIf="isShowing">Hide Books</ng-container>
+</button>
+
+<input type="text" [(ngModel)]="myName" />
+<div>{{ myName }}</div>
+ 
+<ul *ngIf="isShowing">
+    <ng-container *ngFor="let singleBook of books; let i=index">
+        <app-book  (bookEmitter)="addToCart($event)" [book]="singleBook"></app-book>
+    </ng-container>
 </ul>

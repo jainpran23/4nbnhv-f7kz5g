@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../types/book';
+
 
 @Component({
   selector: 'app-books',
@@ -6,10 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './books.component.css',
 })
 export class BooksComponent implements OnInit {
-  name = 'Godaan';
-  author = 'Pream chandra';
-  src = 'https://m.media-amazon.com/images/I/71U6ZbG2TEL._SL1000_.jpg';
+
+  books:Book[] =[
+    {
+      name : 'godaan',
+      author :'pream chandra',
+      image :'https://m.media-amazon.com/images/I/71U6ZbG2TEL._SL1000_.jpg',
+      amount :500
+    },
+    {
+      name : 'THE GOPI DIARIES ',
+      author : 'sudha murty',
+      image :  'https://m.media-amazon.com/images/I/516w2YytYNL._SX342_SY445_.jpg',
+      amount :600
+    
+    }
+  ]
+
+  isShowing: boolean = true;
+  myName: String ='';
+
+  card: Book[]=[];
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  }
+  constructor() {}
+
+  addToCart(book:Book){
+    console.log(book);
+
   }
 }
